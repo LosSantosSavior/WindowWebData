@@ -38,7 +38,7 @@ public class DataHandler {
         var UnivData = jsonParser.fromJson(responseBody, universityDataType[].class);
         return UnivData;
     }
-
+//class with no access specifier
 
     class universityDataType    {
         String alpha_two_code;
