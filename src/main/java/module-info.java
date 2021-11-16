@@ -6,6 +6,7 @@ module bsu.comp152.windowwebdata {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.net.http;
+    requires com.google.gson;
 
     opens bsu.comp152.windowwebdata to javafx.fxml;
     exports bsu.comp152.windowwebdata;

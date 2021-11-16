@@ -6,6 +6,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import com.google.gson.Gson;
 
 public class DataHandler {
     private HttpClient dataGrabber;
@@ -33,7 +34,8 @@ public class DataHandler {
             System.exit(-1);
         }
         var responseBody = response.body();
-
+        var jsonParser = new Gson();
+        var UnivData = jsonParser.fromJson(responseBody, universityDataType[].class);
     }
 
 
