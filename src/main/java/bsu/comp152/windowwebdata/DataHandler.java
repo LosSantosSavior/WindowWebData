@@ -36,6 +36,7 @@ public class DataHandler {
         var responseBody = response.body();
         var jsonParser = new Gson();
         var UnivData = jsonParser.fromJson(responseBody, universityDataType[].class);
+        return UnivData;
     }
 
 
