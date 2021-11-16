@@ -1,7 +1,9 @@
 package bsu.comp152.windowwebdata;
 
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
@@ -15,10 +17,23 @@ public class DataHandler {
     }
 
     public universityDataType[] getData()   {
-        var requestBuilder = HttpClient.newBuilder();
+        var requestBuilder = HttpRequest.newBuilder();
         var ourURI = URI.create(webLocation);
         var dataRequest = requestBuilder.uri(ourURI).build();
         HttpResponse<String> response = null;
+        try {
+            response = dataGrabber.send(dataRequest, HttpResponse.BodyHandlers.ofString());
+        } catch(IOException e)  {
+            System.out.println("Error with connecting to server");
+        } catch(InterruptedException exception) {
+            System.out.println("Lost connection to server");
+        }
+        if(response == null)    {
+            System.out.println("Unable to get data from network...giving up");
+            System.exit(-1);
+        }
+        var responseBody = response.body();
+
     }
 
 
