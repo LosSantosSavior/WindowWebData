@@ -8,6 +8,6 @@ module bsu.comp152.windowwebdata {
     requires java.net.http;
     requires com.google.gson;
 
-    opens bsu.comp152.windowwebdata to javafx.fxml;
+    opens bsu.comp152.windowwebdata to javafx.fxml, com.google.gson;
     exports bsu.comp152.windowwebdata;
 }
